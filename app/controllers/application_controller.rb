@@ -3,12 +3,12 @@ class ApplicationController < ActionController::Base
 
   protected        
     def current_user=(user)
-      cookies.permanent.signed[:user_id] = user && user.id
+      session[:user_id] = user && user.id
     end
     
     def current_user
       return @current_user if defined?(@current_user)
-      @current_user = cookies.signed[:user_id].present? && User.find(cookies.signed[:user_id])
+      @current_user = session[:user_id].present? && User.find(session[:user_id])
     end
     
     def logged_in?

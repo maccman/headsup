@@ -26,7 +26,7 @@ class Email extends Spine.Controller
     
   render: (emails) =>
     @html @view('dashboard/email')(emails: emails)
-    @el.gfxSlideIn(
+    @el.delay(300).gfxSlideIn(
       direction: 'left',
       duration: 450,
       easing: 'cubic-bezier(.25, .1, .25, 1)'

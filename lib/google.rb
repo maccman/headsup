@@ -6,13 +6,15 @@ module Google
       @subject = result['title']
       @summary = result['summary']
       @link    = result['link']['href']
+      @sent_at = Time.parse(result['issued'])
     end
     
     def serializable_hash(options = nil)
       {
         subject: @subject,
-        subject: @subject,
-        link: @link
+        summary: @summary,
+        link: @link,
+        sent_at: @sent_at
       }
     end
   end
@@ -21,8 +23,8 @@ module Google
     def initialize(result)
       @link     = result['htmlLink']
       @name     = result['summary']
-      @start_at = result['start']['date']
-      @end_at   = result['end']['date']
+      @start_at = Time.parse(result['start']['date'])
+      @end_at   = Time.parse(result['end']['date'])
     end
     
     def serializable_hash(options = nil)

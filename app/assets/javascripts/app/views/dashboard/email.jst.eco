@@ -3,5 +3,5 @@
 </header>
 
 <% for email in @emails: %>
-  <div class="item"><a href="<%= email.link %>"><%= email.subject %></a></div>
+  <div class="item"><a href="<%= email.link %>"><%= email.subject %> <time><%= email.sent_at.format('h:i a') %></a></div>
 <% end %>

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/maccman/rack-offline.git
-  revision: 8d39bb7b60467d22739b78fe5516c4a55bea998d
+  revision: 82838e2597ef31fa44d4ad27489e94bc596fdb6c
   specs:
     rack-offline (0.6.1)
 
@@ -87,7 +87,7 @@ GEM
       addressable (~> 2.2.6)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
-    macgap (0.0.3)
+    macgap (0.0.4)
     mail (2.4.1)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)

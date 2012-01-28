@@ -34,6 +34,10 @@
   <script src="spin.js" type="text/javascript" charset="utf-8"></script>
   
   <script type="text/javascript" charset="utf-8">
+    function preload(){
+      (new Img).src = "https://maccman-dashboard.herokuapp.com/assets/blacky.png"
+    }
+  
     function showSpinner(){
       var spinner = document.createElement('div');
 	    spinner.className = 'spinner';
@@ -41,10 +45,11 @@
       new Spinner({
        length: 7,
        width: 4,
-       color: 'rgba(255, 255, 255, 0.5)' 
+       color: "rgba(255, 255, 255, 0.5)"
       }).spin(spinner);
     }
   
+	  document.addEventListener( "DOMContentLoaded", preload, false );
 	  document.addEventListener( "DOMContentLoaded", showSpinner, false );
   </script>
   

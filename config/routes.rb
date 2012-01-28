@@ -14,7 +14,9 @@ Dashboard::Application.routes.draw do
   end
   
   resources :users
-  
+
+  match '/application.manifest' => Rails::Offline, :as => :manifest
+    
   root :to => 'app#index'
   
   # The priority is based upon order of creation:

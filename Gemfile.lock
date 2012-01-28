@@ -1,6 +1,12 @@
 GIT
+  remote: git://github.com/maccman/rack-offline.git
+  revision: 8d39bb7b60467d22739b78fe5516c4a55bea998d
+  specs:
+    rack-offline (0.6.1)
+
+GIT
   remote: git://github.com/maccman/spine-rails.git
-  revision: e7cc7b22045c4da53f8b349341adf0b1a1e999c5
+  revision: c503ebf054372d31feb0159a370cb9f4141177b3
   specs:
     spine-rails (0.0.9)
       rails (>= 3.1.0)
@@ -193,6 +199,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   pg
+  rack-offline!
   rails (= 3.2.1)
   ruby-debug19
   spine-rails!

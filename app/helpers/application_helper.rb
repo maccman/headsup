@@ -1,6 +1,6 @@
 module ApplicationHelper
   def manifest_attr
     return '' unless Rails.env.production?
-    %{manifest="manifest.yml"}.html_safe
+    %{manifest="<%= manifest_path %>"}.html_safe
   end
 end

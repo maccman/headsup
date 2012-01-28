@@ -16,7 +16,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google'
 gem 'omniauth-google-oauth2'
-
+gem 'rack-offline', :git => 'git://github.com/maccman/rack-offline.git'
 gem 'nestful'
 gem 'macgap'
 

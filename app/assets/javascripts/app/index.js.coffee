@@ -23,6 +23,14 @@ class App extends Spine.Controller
     
     @append(@dashboard = new App.Dashboard(user: @user))
     
+    @el.transform
+      scale:   '.8'
+      opacity: '0'
+
+    @el.show().gfx
+      scale:   '1'
+      opacity: '1'
+    
     Spine.Route.setup()
     
   clickLink: (e) ->

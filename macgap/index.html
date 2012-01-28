@@ -6,11 +6,21 @@
     html, body {
       height: 100%;
       width: 100%;
-      background: #FFF;
       padding: 0;
       margin: 0;
       overflow: hidden;
       -webkit-user-select: none;
+      
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-box-align: stretch;
+      
+      background: #363636;
+      background: -webkit-radial-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), url(blacky.png) repeat;
+    }
+    
+    .spinner {
+      -webkit-box-flex: 1;
     }
 
     h1 {
@@ -21,9 +31,25 @@
     }
   </style>
   
+  <script src="spin.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+    function showSpinner(){
+      var spinner = document.createElement('div');
+	    spinner.className = 'spinner';
+	    document.body.appendChild(spinner);
+      new Spinner({
+       length: 7,
+       width: 4,
+       color: 'rgba(255, 255, 255, 0.5)' 
+      }).spin(spinner);
+    }
+  
+	  document.addEventListener( "DOMContentLoaded", showSpinner, false );
+  </script>
+  
   <meta http-equiv="refresh" content="0;url=https://maccman-dashboard.herokuapp.com">  
 </head>
 <body>
-  <h1>Loading...</h1>
 </body>
 </html>

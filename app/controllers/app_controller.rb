@@ -1,5 +1,9 @@
 class AppController < ApplicationController
   before_filter :require_user
+  
+  rescue_from Nestful::UnauthorizedAccess do |exception|
+    head :unauthorized
+  end
 
   def index
     @user = current_user
@@ -7,7 +11,7 @@ class AppController < ApplicationController
   
   def calendar
     @events = current_user.google.calendar
-    render :json => @events
+    render :json => @events    
   end
   
   def email

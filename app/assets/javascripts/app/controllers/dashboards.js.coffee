@@ -6,7 +6,8 @@ class Calendar extends Spine.Controller
   constructor: ->
     super
     @el.hide()
-    $.getJSON('/app/calendar', @render)
+    request = $.getJSON('/app/calendar')
+    request.success(@render).error(@error)
     
   render: (events) =>
     @html @view('dashboard/calendar')(events: events)
@@ -15,6 +16,10 @@ class Calendar extends Spine.Controller
       duration: 450,
       easing: 'cubic-bezier(.25, .1, .25, 1)'
     )
+    
+  # Google session token has expired
+  error: =>
+    window.location = '/authorize'
 
 class Email extends Spine.Controller
   className: 'email'

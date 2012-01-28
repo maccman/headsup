@@ -1,11 +1,12 @@
 Dashboard::Application.routes.draw do
   
   match '/auth/google' => redirect('/auth/google_oauth2')
-  match '/auth/google_oauth2/callback' => 'authorize#google'
+  match '/auth/google_oauth2/callback' => 'authorize#create'
   match '/auth/failure' => 'authorize#failure'
   match '/logout' => 'authorize#destroy', :as => :logout
   match '/authorize' => redirect('/auth/google'), :as => :authorize
   
+  root :to => 'app#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_one :note
+  
   class << self
     def authorize_google!(auth)
       return unless auth && auth.uid
@@ -9,4 +11,26 @@ class User < ActiveRecord::Base
       user
     end
   end
+  
+  def calendar
+    google.calendar
+  end
+  
+  def email
+    
+  end
+  
+  def serializable_hash(options = {})
+    super(options.merge(
+      :methods => [
+        :calendar, :email
+      ],
+      :include => :note
+    ))
+  end
+  
+  protected
+    def google
+      Google::Client.new(google_token)
+    end
 end

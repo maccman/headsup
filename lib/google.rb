@@ -1,0 +1,71 @@
+require 'nestful'
+require 'nestful/oauth'
+
+module Google
+  class Email
+    def initialize(result)
+      @subject = result['title']
+      @summary = result['summary']
+      @link    = result['link']
+    end
+    
+    def serializable_hash(options = nil)
+      {
+        subject: @subject,
+        subject: @subject,
+        link: @link
+      }
+    end
+  end
+  
+  class Event
+    def initialize(result)
+      @link     = result['htmlLink']
+      @name     = result['summary']
+      @start_at = result['start']['date']
+      @end_at   = result['end']['date']
+    end
+    
+    def serializable_hash(options = nil)
+      {
+        link: @link,
+        name: @name,
+        start_at: @start_at,
+        end_at: @end_at
+      }
+    end
+  end
+  
+  class Client
+    attr_reader :token, :options
+    
+    def initialize(token, options = {})
+      @token   = token
+      @options = options
+    end
+    
+    def email
+      result = Nestful.get(
+        "https://mail.google.com/mail/feed/atom/", 
+        oauth: {access_key: ENV["GOOGLE_SECRET"], access_secret: token}
+      )
+      result = Hash.from_xml(result)
+      result["entry"]#.map {|e| Email.new(e) }
+    end
+    
+    def calendar
+      result = Nestful.get(
+        "https://www.googleapis.com/calendar/v3/calendars/primary/events", 
+        params: {
+          access_token: token,
+          maxResults: 100000, 
+          orderBy: "updated",
+          timeMin: Time.current.beginning_of_day.xmlschema,
+          timeMax: Time.current.end_of_day.xmlschema
+        }
+      )
+      result = ActiveSupport::JSON.decode(result)
+      result["items"].map {|i| Event.new(i) }
+    end
+  end
+end

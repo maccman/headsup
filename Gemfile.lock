@@ -91,6 +91,7 @@ GEM
     multipart-post (1.1.4)
     nestful (0.0.8)
       activesupport (>= 3.0.0.beta)
+    net-http-spy (0.2.1)
     oauth (0.4.5)
     oauth2 (0.5.2)
       faraday (~> 0.7)
@@ -142,6 +143,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    roauth (0.0.8)
     ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -188,12 +190,15 @@ DEPENDENCIES
   jquery-rails
   macgap
   nestful
+  net-http-spy
+  oauth
   omniauth
   omniauth-google
   omniauth-google-oauth2
   omniauth-twitter
   pg
   rails (= 3.2.1)
+  roauth
   ruby-debug19
   spine-rails!
   sqlite3

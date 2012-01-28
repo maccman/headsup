@@ -27,7 +27,7 @@ class App extends Spine.Controller
       scale:   '.8'
       opacity: '0'
 
-    @el.show().gfx
+    @el.delay(100).show().gfx
       scale:   '1'
       opacity: '1'
     

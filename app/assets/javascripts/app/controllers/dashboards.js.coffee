@@ -41,7 +41,7 @@ class App.Dashboard extends Spine.Controller
     'textarea': 'textarea'
     
   events:
-    'blur textarea': 'blur'
+    'change textarea': 'change'
   
   constructor: ->
     super
@@ -52,6 +52,6 @@ class App.Dashboard extends Spine.Controller
     @append(new Calendar)
     @append(new Email)
     
-  blur: ->
+  change: ->
     @user.note = @textarea.val()
     @user.save()

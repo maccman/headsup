@@ -17,10 +17,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-google'
 gem 'omniauth-google-oauth2'
 
-gem 'oauth'
-gem 'roauth'
-gem 'net-http-spy'
-
 gem 'nestful'
 gem 'macgap'
 

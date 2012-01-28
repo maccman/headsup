@@ -6,6 +6,15 @@ Dashboard::Application.routes.draw do
   match '/logout' => 'authorize#destroy', :as => :logout
   match '/authorize' => redirect('/auth/google'), :as => :authorize
   
+  resources :app do
+    collection do
+      get 'email'
+      get 'calendar'
+    end
+  end
+  
+  resources :users
+  
   root :to => 'app#index'
   
   # The priority is based upon order of creation:

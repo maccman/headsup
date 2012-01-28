@@ -1,0 +1,10 @@
+<div class="info">
+  <header>
+    <img src="<%= @user.avatar_url %>">
+    <h2>Welcome back <%= @user.first_name %>!</h2>
+  </header>
+
+  <article>
+    <textarea placeholder="Notes..."><%= @user.note %></textarea>
+  </article>
+</div>

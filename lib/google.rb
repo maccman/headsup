@@ -1,12 +1,11 @@
 require 'nestful'
-require 'nestful/oauth'
 
 module Google
   class Email
     def initialize(result)
       @subject = result['title']
       @summary = result['summary']
-      @link    = result['link']
+      @link    = result['link']['href']
     end
     
     def serializable_hash(options = nil)
@@ -47,10 +46,10 @@ module Google
     def email
       result = Nestful.get(
         "https://mail.google.com/mail/feed/atom/", 
-        oauth: {access_key: ENV["GOOGLE_SECRET"], access_secret: token}
+        headers: {"Authorization" => "OAuth #{token}"}
       )
       result = Hash.from_xml(result)
-      result["entry"]#.map {|e| Email.new(e) }
+      result["feed"]["entry"].map {|e| Email.new(e) }
     end
     
     def calendar

@@ -1,0 +1,10 @@
+<div id="app"></div>
+
+<script type="text/javascript" charset="utf-8">
+  jQuery(function($){
+    window.app = new App({
+      el: $('#app'), 
+      user: <%= @user.to_json.html_safe %>
+    });
+  });
+</script>

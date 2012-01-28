@@ -1,0 +1,36 @@
+/*
+ *= require theme
+ *= require_tree ./app
+ *= require_self
+*/
+
+@import 'mixins'
+
+.stack > *:not(.active)
+  display: none !important
+  
+body, html
+  vbox()
+  background: #363636 
+  background: -webkit-radial-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), url(/assets/blacky.png) repeat
+  
+body > .spinner
+  box-flex(1)
+  
+#app
+  margin: 10px
+  border-radius(4px)
+  box-flex(1)
+  hbox()
+  overflow: hidden
+      
+  .vdivide
+    hbg-gradient(lighten(#F4F4F4, 10%), darken(#F4F4F4, 5%))
+    width: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1)
+    border-width: 0 1px 0 1px
+    border-right-color: rgba(0, 0, 0, 0.2)
+    
+  > .stack
+    box-flex(1)
+    hbox()

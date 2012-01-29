@@ -7,8 +7,8 @@ class App.CalendarEvent extends Spine.Model
     
   load: ->
     super
-    @start_at = new Date(@start_at)
-    @end_at = new Date(@end_at)
+    @start_at = new Date(@start_at) if @start_at
+    @end_at = new Date(@end_at) if @end_at
     
   @bind 'ajaxError', (_, e) ->
     if e.status is 401

@@ -23,8 +23,11 @@ module Google
     def initialize(result)
       @link     = result['htmlLink']
       @name     = result['summary']
-      @start_at = Time.parse(result['start']['date'])
-      @end_at   = Time.parse(result['end']['date'])
+      @start_at = result['start']['date']
+      @end_at   = result['end']['date']
+      
+      @start_at = Time.parse(@start_at) if @start_at
+      @end_at   = Time.parse(@end_at) if @end_at
     end
     
     def serializable_hash(options = nil)

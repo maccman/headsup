@@ -6,10 +6,8 @@ class Calendar extends Spine.Controller
   constructor: ->
     super
     @el.hide()
-    App.CalendarEvent.bind 'refresh', @render
-    App.CalendarEvent.fetch()
     
-  render: (events) =>
+  render: (events = App.CalendarEvent.all()) =>
     @html @view('dashboard/calendar')(events: events)
     @el.gfxSlideIn(
       direction: 'left',
@@ -23,10 +21,8 @@ class Email extends Spine.Controller
   constructor: ->
     super
     @el.hide()
-    App.Email.bind 'refresh', @render
-    App.Email.fetch()
     
-  render: (emails) =>
+  render: (emails = App.Email.all()) =>
     @html @view('dashboard/email')(emails: emails)
     @el.delay(300).gfxSlideIn(
       direction: 'left',
@@ -49,8 +45,14 @@ class App.Dashboard extends Spine.Controller
   
   render: ->
     @html @view('dashboard')(user: @user)
-    @append(new Calendar)
-    @append(new Email)
+    $.when(
+      App.CalendarEvent.ajax().fetch(),
+      App.Email.ajax().fetch()
+    ).done =>    
+      @append(@calendar = new Calendar)
+      @append(@email = new Email)
+      @calendar.render()
+      @email.render()
     
   change: ->
     @user.note = @textarea.val()

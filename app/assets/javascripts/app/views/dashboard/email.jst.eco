@@ -2,6 +2,14 @@
   <h2>Email</h2>
 </header>
 
-<% for email in @emails: %>
-  <div class="item"><a href="<%= email.link %>"><%= email.subject %> <time><%= email.sent_at.format('h:i a') %></a></div>
+<div class="items">
+  <% for email in @emails: %>
+    <div class="item"><a href="<%= email.link %>"><%= email.subject %> <time><%= email.sent_at.format('h:i a') %></a></div>
+  <% end %>
+</div>
+
+<% unless @emails.length: %>
+  <div class="empty">
+    Empty...
+  </div>
 <% end %>

@@ -10,6 +10,6 @@ class App.CalendarEvent extends Spine.Model
     @start_at = new Date(@start_at)
     @end_at = new Date(@end_at)
     
-  @bind 'ajaxError', (e) ->
-    if e.status is 403
+  @bind 'ajaxError', (_, e) ->
+    if e.status is 401
       window.location = '/authorize'

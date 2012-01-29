@@ -78,11 +78,8 @@
       bottom: 0
       
     time
-      font-size: 11px;
-      color: darken(#CCC, 10%);
-      font-weight: normal;
-      right: 3px;
-      top: 3px;
+      font-size: 11px
+      color: darken(#CCC, 10%)
       
       &:before
         content: '@'
@@ -98,6 +95,14 @@
     
   .email
     z-index: 25
+    
+  .empty
+    color: darken(#CCC, 10%);
+    overflow: hidden
+    content: 'Empty...'
+    display: block
+    text-align: center
+    margin: 15px 0
             
   .item
     border-bottom: 1px solid lighten(#D1D1D1, 20%)

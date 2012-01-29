@@ -51,7 +51,7 @@ module Google
         headers: {"Authorization" => "OAuth #{token}"}
       )
       result = Hash.from_xml(result)
-      result["feed"]["entry"].map {|e| Email.new(e) }
+      (result["feed"]["entry"] || []).map {|e| Email.new(e) }
     end
     
     def calendar
@@ -66,7 +66,7 @@ module Google
         }
       )
       result = ActiveSupport::JSON.decode(result)
-      result["items"].map {|i| Event.new(i) }
+      (result["items"] || []).map {|i| Event.new(i) }
     end
   end
 end

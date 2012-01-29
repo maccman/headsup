@@ -12,6 +12,4 @@ class App.CalendarEvent extends Spine.Model
     
   @bind 'ajaxError', (_, e) ->
     if e.status is 401
-      # Safari iframe cookie fix
-      form = $('<form />').attr('action', '/authorize')
-      form.appendTo('body').submit()
+      window.location = '/authorize'      

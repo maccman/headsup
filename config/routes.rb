@@ -1,4 +1,4 @@
-Dashboard::Application.routes.draw do
+HeadsUp::Application.routes.draw do
   
   match '/auth/google' => redirect('/auth/google_oauth2')
   match '/auth/google_oauth2/callback' => 'authorize#create'

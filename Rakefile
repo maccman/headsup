@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Dashboard::Application.load_tasks
+HeadsUp::Application.load_tasks

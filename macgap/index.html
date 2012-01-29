@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Heads Up</title>
+  <title>MacGap</title>
   <style type="text/css" media="screen">
     html, body {
       height: 100%;
       width: 100%;
+      background: #FFF;
       padding: 0;
       margin: 0;
       overflow: hidden;
       -webkit-user-select: none;
-      
-      background: #363636;
-      background: -webkit-radial-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), url(blacky.png) repeat;
-    }
-    
-    .spinner {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 50;
     }
 
     h1 {
@@ -30,39 +19,11 @@
       text-align: center;
       font-family: helvetica;
     }
-    
-    body {
-      position: relative;
-    }
-    
-    iframe {
-      position: absolute;
-      display: block;
-      border: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 100;
-    }
   </style>
   
-  <script src="spin.js" type="text/javascript" charset="utf-8"></script>
-  
-  <script type="text/javascript" charset="utf-8">
-    function showSpinner(){
-      var spinner = document.createElement('div');
-	    spinner.className = 'spinner';
-	    document.body.appendChild(spinner);
-      new Spinner({
-       length: 7,
-       width: 4,
-       color: "rgba(255, 255, 255, 0.5)"
-      }).spin(spinner);
-    }
-  
-	  document.addEventListener( "DOMContentLoaded", showSpinner, false );
-  </script>  
+  <meta http-equiv="refresh" content="0;url=https://maccman-headsup.herokuapp.com">
 </head>
 <body>
-  <iframe src="https://maccman-headsup.herokuapp.com" style="visibility:hidden;" onload="this.style.visibility = 'visible';" />
+  <h1>Loading...</h1>
 </body>
 </html>

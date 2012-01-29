@@ -2,6 +2,8 @@
 
 A simple Heads Up display showing your calendar items for today, your unread emails and custom notes.
 
+[Download the OSX app](http://cl.ly/DlQR) or try the [live demo](https://maccman-headsup.herokuapp.com/).
+
 ![Heads Up](http://f.cl.ly/items/0w0P0j1s0X3D0L1p2J0A/Screen%20Shot%202012-01-29%20at%2008.42.14.png)
 
 Heads Up contains good examples of how to use:
@@ -13,15 +15,22 @@ Heads Up contains good examples of how to use:
 * [Nestful](http://github.com/maccman/nestful)
 * [Rack::Offline](http://github.com/maccman/rack-offline)
 
-[Download the OSX app](http://cl.ly/DlQR) or try the [live demo](https://maccman-headsup.herokuapp.com/).
+## Source
 
-# Google keys
+If you're browsing the source, the interesting files are:
+
+* [`dashboard.js.coffee`](https://github.com/maccman/headsup/blob/master/app/assets/javascripts/app/controllers/dashboards.js.coffee)
+* [`authorize_controller.rb`](https://github.com/maccman/headsup/blob/master/app/controllers/authorize_controller.rb)
+* [`user.rb`](https://github.com/maccman/headsup/blob/master/app/models/user.rb)
+* [`google.rb`](https://github.com/maccman/headsup/blob/master/lib/google.rb)
+
+## Google keys
 
 If you're running the app locally, or using Heroku, you'll first need to obtain a set of [API keys from Google](https://code.google.com/apis/console/), as well as specify the correct redirect URLS:
 
 ![Redirect URLS](http://f.cl.ly/items/1R323Y3h2F322h211g1j/Screen%20Shot%202012-01-29%20at%2008.50.48.png)
 
-# Running locally
+## Running locally
 
     git clone git://github.com/maccman/headsup.git
     cd headsup
@@ -32,7 +41,7 @@ If you're running the app locally, or using Heroku, you'll first need to obtain 
     
     rails s thin
     
-# Deploying to Heroku
+## Deploying to Heroku
 
     git clone git://github.com/maccman/headsup.git
     cd headsup
@@ -44,7 +53,7 @@ If you're running the app locally, or using Heroku, you'll first need to obtain 
     git push heroku master
     heroku run rake db:setup
 
-# Building the app with MacGap
+## Building the app with MacGap
 
 [MacGap](http://github.com/maccman/macgap) is a utility for wrapping up web apps with a WebKit wrapper, and exposing a basic OS integration API. 
 

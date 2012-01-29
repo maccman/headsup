@@ -57,6 +57,6 @@ If you're running the app locally, or using Heroku, you'll first need to obtain 
 
 [MacGap](http://github.com/maccman/macgap) is a utility for wrapping up web apps with a WebKit wrapper, and exposing a basic OS integration API. 
 
-If you want to built the MacGap application, you'll first have to edit the iframe endpoint in `./macgap/index.html` to point to your remote application, and then run:
+If you want to built the MacGap application, you'll first have to edit the redirect endpoint in `./macgap/index.html` to point to your remote application, and then run:
 
     rake macgap:build

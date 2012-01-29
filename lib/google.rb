@@ -51,7 +51,9 @@ module Google
         headers: {"Authorization" => "OAuth #{token}"}
       )
       result = Hash.from_xml(result)
-      Array((result["feed"]["entry"] || [])).map {|e| Email.new(e) }
+      result = result["feed"]["entry"] || []
+      result = [result] unless result.is_a?(Array)
+      result.map {|e| Email.new(e) }
     end
     
     def calendar

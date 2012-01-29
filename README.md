@@ -2,7 +2,7 @@
 
 A simple Heads Up display showing your calendar items for today, your unread emails and custom notes.
 
-[Download the OSX app](http://cl.ly/DlQR) or try the [live demo](https://maccman-headsup.herokuapp.com).
+[Download the OSX app](http://cl.ly/DlUM) or try the [live demo](https://maccman-headsup.herokuapp.com).
 
 [![Heads Up](http://f.cl.ly/items/0w0P0j1s0X3D0L1p2J0A/Screen%20Shot%202012-01-29%20at%2008.42.14.png)](https://maccman-headsup.herokuapp.com)
 

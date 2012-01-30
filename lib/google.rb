@@ -23,8 +23,9 @@ module Google
     def initialize(result)
       @link     = result['htmlLink']
       @name     = result['summary']
-      @start_at = result['start']['date']
-      @end_at   = result['end']['date']
+
+      @start_at = result['start']['dateTime']
+      @end_at   = result['end']['dateTime']
       
       @start_at = Time.parse(@start_at) if @start_at
       @end_at   = Time.parse(@end_at) if @end_at
